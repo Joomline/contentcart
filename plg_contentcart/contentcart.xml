@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<extension type="plugin" version="3.8" method="upgrade" group="content">
+    <name>PLG_CONTENT_CONTENTCART</name>
+    <author>Efanych</author>
+    <authorEmail>efanych@gmail.com</authorEmail>
+	<creationDate>@date@</creationDate>
+    <authorUrl>https://joomlaforum.ru/index.php?action=profile;u=79782</authorUrl>
+    <copyright>(C) 2018 Joomline. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <version>@version@</version>
+    <description>PLG_CONTENTCART_DESC</description>
+    <files>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+        <filename plugin="contentcart">contentcart.php</filename>
+        <filename>index.html</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+				<field name="mymenuitem" type="menuitem" default="" label="CONTENTCART_MENU" description="CONTENTCART_MENU_DESC" >
+					<option	value="">JNO</option>
+				</field>
+				<field
+					name="using_price"
+					type="radio"
+					label="CONTENTCART_PRICE_USING"
+					description="CONTENTCART_PRICE_USING_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="1">CONTENTCART_YES</option>
+					<option value="0">CONTENTCART_NO</option>
+				</field>
+				
+				<field name="price_id" type="text" label="CONTENTCART_PRICE_ID" description="CONTENTCART_PRICE_ID_DESC"/>
+				<field name="currency" type="text" label="CONTENTCART_CURRENCY" description="CONTENTCART_CURRENCY_ID_DESC"/>
+				<field
+					name="category_filtering_type"
+					type="radio"
+					label="CONTENTCART_CATFILTERINGTYPE"
+					description="CONTENTCART_CATFILTERINGTYPE_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					>
+					<option value="1">CONTENTCART_CATEGORY_OPTION_INCLUSIVE</option>
+					<option value="0">CONTENTCART_CATEGORY_OPTION_EXCLUSIVE</option>
+				</field>
+
+				<field
+					name="catid"
+					type="category"
+					label="JCATEGORY"
+					description="CONTENTCART_CATEGORY_DESC"
+					extension="com_content"
+					multiple="true"
+					size="5"
+					>
+				</field>
+				<field 
+				name="application_area" 
+				type="list" 
+				default="com_content.article" 
+				multiple="true" 
+				label="CONTENTCART_APPLICATION_AREA" 
+				description="CONTENTCART_APPLICATION_AREA_DESC"
+				>
+  				<option value="com_content.article">CONTENTCART_ARTICLE</option>
+  				<option value="com_content.category">CONTENTCART_BLOG</option>
+  				<option value="com_content.featured">CONTENTCART_FEATURED</option>
+				</field>
+				<field
+					name="cat_for_orders"
+					type="category"
+					label="CONTENTCART_CATEGORY_FOR_ORDERS"
+					description="CONTENTCART_CATEGORY_FOR_ORDERS_DESC"
+					extension="com_content"
+					default=""
+					size="5"
+					>
+					<option value="">Не сохранять</option>
+				</field>
+				
+            </fieldset>
+			<fieldset name="client_info">
+				<field
+					name="client_name"
+					type="radio"
+					label="CONTENTCART_CLIENT_NAME"
+					description="CONTENTCART_CLIENT_NAME_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="2">CONTENTCART_REQUIRED</option>
+					<option value="1">CONTENTCART_NOT_REQUIRED</option>
+					<option value="0">CONTENTCART_NO</option>
+				</field>
+				<field
+					name="client_email"
+					type="radio"
+					label="CONTENTCART_CLIENT_EMAIL"
+					description="CONTENTCART_CLIENT_EMAIL_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="2">CONTENTCART_REQUIRED</option>
+					<option value="1">CONTENTCART_NOT_REQUIRED</option>
+					<option value="0">CONTENTCART_NO</option>
+				</field>
+				<field
+					name="client_phone"
+					type="radio"
+					label="CONTENTCART_CLIENT_PHONE"
+					description="CONTENTCART_CLIENT_PHONE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="2">CONTENTCART_REQUIRED</option>
+					<option value="1">CONTENTCART_NOT_REQUIRED</option>
+					<option value="0">CONTENTCART_NO</option>
+				</field>
+				<field
+					name="client_note"
+					type="radio"
+					label="CONTENTCART_CLIENT_NOTE"
+					description="CONTENTCART_CLIENT_NOTE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="2">CONTENTCART_REQUIRED</option>
+					<option value="1">CONTENTCART_NOT_REQUIRED</option>
+					<option value="0">CONTENTCART_NO</option>
+				</field>
+				<field name="title_note" type="text" label="CONTENTCART_TITLE_NOTE" description="CONTENTCART_TITLE_NOTE_DESC" default="" />
+			</fieldset>
+        </fields>
+    </config>
+</extension>
