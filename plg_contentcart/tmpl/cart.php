@@ -8,6 +8,7 @@
  */
 
 defined('_JEXEC') or die;
+
 header('Content-Type: text/html; charset=utf-8');
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 $session = JFactory::getSession();
@@ -25,8 +26,9 @@ $session->set('content_order',  $content_order);
 
 }
 
-?>
 
+?>
+<div class="jlcontentcart">
 <h1 class="title"><?php echo JText::_('CONTENTCART_SHOPPING_CART')?></h1>
 <form name="cart" class="order" method="post" action="<?php $_SERVER['REQUEST_URI'] ?>">
 <table style="width:100%;">
@@ -42,19 +44,22 @@ $session->set('content_order',  $content_order);
 </thead>
 <tbody>
 <?php $i = 0; $total=0; foreach($content_order as $order_item){ ?>
-		<tr class="order_item">
-        	<td><?php echo $i+1 ?></td>
-        	<td><a class="order_item_name" href="<?php echo $order_item['link'] ?>"><?php echo $order_item['title'] ?></a></td>
-            <td><input type="number" name="count<?php echo $i ?>" max="999" min="1"  value="<?php echo $order_item['count'] ?>" onchange="update()" /></td>
-            <?php if ($pluginParams->get('using_price')=='1') { ?>
-            	<td name="price"><?php echo $order_item['price'].' '.$pluginParams->get('currency') ?></td>
-                <td><?php echo $order_item['price']*$order_item['count'].' '.$pluginParams->get('currency') ?></td>
-            <?php } ?>
-            <td><a href="<?php echo JURI::current().'?delete='.$i ?>"><?php echo JText::_('CONTENTCART_PRODUCT_DELETE')?></a></td>
-        </tr>	
+	<tr class="order_item">
+		<td><?php echo $i+1 ?></td>
+		<td><a class="order_item_name" href="<?php echo $order_item['link'] ?>"><?php echo $order_item['title'] ?></a></td>
+		<td><input class="jlcc-input jlcc-count" type="number" name="count<?php echo $i ?>" max="999" min="1"  value="<?php echo $order_item['count'] ?>" onchange="update()" /></td>
+		<?php if ($pluginParams->get('using_price')=='1') { ?>
+			<td name="price"><?php echo $order_item['price'].' '.$pluginParams->get('currency') ?></td>
+			<td><?php echo $order_item['price']*$order_item['count'].' '.$pluginParams->get('currency') ?></td>
+		<?php } ?>
+		<td><a href="<?php echo JURI::current().'?delete='.$i ?>"><?php echo JText::_('CONTENTCART_PRODUCT_DELETE')?></a></td>
+	</tr>	
 <?php $i++; $total=$total+($order_item['price']*$order_item['count']);} ?>
 <?php if ($pluginParams->get('using_price')=='1') { ?>
-<tr><td colspan="5" style="text-align:right;"><b><?php echo JText::_('CONTENTCART_PRODUCT_TOTAL')?>:&nbsp;</b></td><td> <?php echo $total.' '.$pluginParams->get('currency') ?></td></tr>
+	<tr class="order_total">
+		<td colspan="5" style="text-align:right;"><b><?php echo JText::_('CONTENTCART_PRODUCT_TOTAL')?>:&nbsp;</b></td>
+		<td> <?php echo $total.' '.$pluginParams->get('currency') ?></td>
+	</tr>
 <?php } ?>
 </tbody>
 </table>
@@ -69,10 +74,12 @@ if(!JFactory::getUser()->guest) {
 	$username = '';
 }
 ?>
-<input type="hidden" name="mail" value="1" />
+	<h3><?php echo JText::_('CONTENTCART_CLIENT_DATA')?></h3>
+	<div class="jlcc-block-data">
+	<input class="jlcc-input" type="hidden" name="mail" value="1" />
 <?php if ($pluginParams->get('client_name')!='0') { ?>
 	<div>
-    <input type="text" name="client_name" value="<?php echo $username ?>"  size="25" 
+    <input class="jlcc-input" type="text" name="client_name" value="<?php echo $username ?>"  size="25" 
 	<?php if ($pluginParams->get('client_name')=='2') { ?>
 		required="required" aria-required="true" 
 	<?php } ?>
@@ -82,7 +89,7 @@ if(!JFactory::getUser()->guest) {
 
 <?php if ($pluginParams->get('client_email')!='0') { ?>
 	<div>
-    <input type="email" name="client_email" value="<?php echo $useremail ?>"  size="25" 
+    <input class="jlcc-input" type="email" name="client_email" value="<?php echo $useremail ?>"  size="25" 
 	<?php if ($pluginParams->get('client_email')=='2') { ?>
 		required="required" aria-required="true" 
 	<?php } ?>
@@ -92,7 +99,7 @@ if(!JFactory::getUser()->guest) {
 
 <?php if ($pluginParams->get('client_phone')!='0') { ?>
 	<div>
-    <input type="tel" name="client_phone" value=""  size="25" 
+    <input class="jlcc-input" type="tel" name="client_phone" value=""  size="25" 
 	<?php if ($pluginParams->get('client_phone')=='2') { ?>
 		required="required" aria-required="true" 
 	<?php } ?>
@@ -101,13 +108,14 @@ if(!JFactory::getUser()->guest) {
 <?php } ?>
 
 <?php if ($pluginParams->get('client_note')!='0') { ?>
-	<div><textarea name="client_note" value=""
+	<div><textarea class="jlcc-textarea" name="client_note" value=""
 	<?php if ($pluginParams->get('client_note')=='2') { ?>
 		required="required" aria-required="true" 
 	<?php } ?>
 	autofocus="" aria-invalid="false" placeholder="<?php if ($pluginParams->get('title_note')) {echo $pluginParams->get('title_note');} else {echo JText::_('CONTENTCART_CLIENT_NOTE');} ?>"></textarea></div>
 <?php } ?>
-<div><input type="submit" class="validate btn btn-primary" value="<?php echo JText::_('CONTENTCART_TO_ORDER')?>" /></div>
+<div><input type="submit" class="validate jlcc-button jlcc-primary" value="<?php echo JText::_('CONTENTCART_TO_ORDER')?>" /></div>
+</div> 
 </form>
 <script>
 function update() {
@@ -119,3 +127,4 @@ function update() {
 	document.cart.submit();
 }
 </script>
+</div>

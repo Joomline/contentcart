@@ -1,0 +1,76 @@
+.jlcontentcart input.jlcc-input {
+    height: 32px;
+    line-height: 32px;
+    margin: 8px 0;
+}
+
+.jlcc-button:hover {
+    background-color: #0070a5;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.jlcc-button {
+    display: inline-block;
+    margin: 8px 0;
+    padding: 5px 15px;
+    font-family: inherit;
+    font-size: .8rem;
+    font-weight: 400;
+    line-height: 2;
+    text-transform: uppercase;
+    border: none;
+    background-color: #00588a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.jlcc-count {
+	max-width: 80px
+}
+
+.jlcontentcart a.jlcc-button {
+    text-decoration: none;
+} 
+
+.jlcc-button.jlcc-success {
+	background-color:#5bb75b;
+}
+
+.jlcc-button.jlcc-success:hover {
+	background-color:#51a351;
+}
+
+.jlcontentcart .jlcc-textarea {
+    margin: 8px 0;
+}
+
+.jlcc-block-data {
+    text-align: center;
+}
+
+.jlcc-block-data .jlcc-input, .jlcc-block-data .jlcc-textarea {
+    min-width: 280px;
+}
+
+.jlcontentcart table {
+	text-align: left;
+}
+
+.jlcontentcart table tr {
+	height: 32px;
+    line-height: 32px;
+}
+
+.jlcontentcart table th {
+    background-color: #c4c4c433;
+    padding-left: 8px;
+}
+
+.jlcontentcart table td {
+    padding-left: 8px;
+}
+
+tr.order_total {
+    border-bottom: 1px solid #d7d7d7;
+}

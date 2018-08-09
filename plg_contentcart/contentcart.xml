@@ -10,6 +10,7 @@
     <version>@version@</version>
     <description>PLG_CONTENTCART_DESC</description>
     <files>
+		<folder>assets</folder>
 		<folder>tmpl</folder>
 		<folder>language</folder>
         <filename plugin="contentcart">contentcart.php</filename>
@@ -80,6 +81,16 @@
 					>
 					<option value="">Не сохранять</option>
 				</field>
+				<field
+                    name="enable_css"
+                    type="list"
+                    default="1"
+                    label="CONTENTCART_ENABLE_CSS"
+                    description="CONTENTCART_ENABLE_CSS_DESC"
+                >
+					<option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
 				
             </fieldset>
 			<fieldset name="client_info">
