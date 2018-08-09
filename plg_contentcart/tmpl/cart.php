@@ -1,10 +1,11 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  com_content
+ * Content Cart
  *
- * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @version 	@version@
+ * @author		Joomline
+ * @copyright	(C) 2018 Efanych (efanych@gmail.com), Joomline. All rights reserved.
+ * @license 	GNU General Public License version 2 or later; see	LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -74,7 +75,7 @@ if(!JFactory::getUser()->guest) {
 	$username = '';
 }
 ?>
-	<h3><?php echo JText::_('CONTENTCART_CLIENT_DATA')?></h3>
+	<h3 class="jlcc-title-data"><?php echo JText::_('CONTENTCART_CLIENT_DATA')?></h3>
 	<div class="jlcc-block-data">
 	<input class="jlcc-input" type="hidden" name="mail" value="1" />
 <?php if ($pluginParams->get('client_name')!='0') { ?>

@@ -1,4 +1,13 @@
 ﻿<?php
+/**
+ * Content Cart
+ *
+ * @version 	@version@
+ * @author		Joomline
+ * @copyright	(C) 2018 Efanych (efanych@gmail.com), Joomline. All rights reserved.
+ * @license 	GNU General Public License version 2 or later; see	LICENSE.txt
+ */
+
 defined('_JEXEC') or die;
 header('Content-Type: text/html; charset=utf-8');
 $session = JFactory::getSession();
