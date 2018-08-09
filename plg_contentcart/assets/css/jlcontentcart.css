@@ -78,3 +78,8 @@
 tr.order_item {
     border-bottom: 1px solid #d7d7d7;
 }
+
+.content_cart.jlcontentcart {
+    border: 1px solid #e5e3e3;
+    padding: 10px;
+}
