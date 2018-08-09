@@ -58,8 +58,9 @@ $session->set('content_order',  $content_order);
 <?php $i++; $total=$total+($order_item['price']*$order_item['count']);} ?>
 <?php if ($pluginParams->get('using_price')=='1') { ?>
 	<tr class="order_total">
-		<td colspan="5" style="text-align:right;"><b><?php echo JText::_('CONTENTCART_PRODUCT_TOTAL')?>:&nbsp;</b></td>
+		<td colspan="4" style="text-align:right;"><b><?php echo JText::_('CONTENTCART_PRODUCT_TOTAL')?>:&nbsp;</b></td>
 		<td> <?php echo $total.' '.$pluginParams->get('currency') ?></td>
+		<td></td>
 	</tr>
 <?php } ?>
 </tbody>

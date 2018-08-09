@@ -71,9 +71,10 @@
     padding-left: 8px;
 }
 
-tr.order_total {
-    border-bottom: 1px solid #d7d7d7;
-}
 .jlcc-title-data {
     text-align: center;
+}
+
+tr.order_item {
+    border-bottom: 1px solid #d7d7d7;
 }
