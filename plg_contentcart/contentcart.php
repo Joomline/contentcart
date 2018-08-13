@@ -56,26 +56,40 @@ class plgContentcontentcart extends JPlugin
 			return $html;
 	}
 	
-	public function onContentPrepare($context, $article, $params, $page = 0){
-		if ($context == 'com_content.article') {
-			$cart_url = JRoute::_("index.php?Itemid=".$this->params->get('mymenuitem'));
-			$link = JRoute::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid, $article->language));
-			if (JFactory::getApplication()->input->getInt('cart') or $link == $cart_url) {
-				$session = JFactory::getSession();
-				if ( $session->get('content_order')) {
-					$view = JControllerLegacy::getInstance('Content')->getView('article', JFactory::getDocument()->getType());
-					$view->addTemplatePath(JPATH_SITE . '/plugins/content/contentcart/tmpl/');
-					$view->setLayout('cart');  
-					if(!$this->params->get('mymenuitem')){
-						$doc =  JFactory::getDocument();
-						$doc->setTitle(JText::_('CONTENTCART_SHOPPING_CART'));
-					}
-				} elseif ($link != $cart_url) {
-					JFactory::getApplication()->redirect($link, 301);
-				}
-		
-			}
-		}
-	}
+    public function onContentPrepare($context, $article, $params, $page = 0)
+    {
+        if ($context != 'com_content.article') {
+            return;
+        }
+        $app  = JFactory::getApplication();
+        $session = JFactory::getSession();
+        $cart_url = JRoute::_("index.php?Itemid=" . $this->params->get('mymenuitem'));
+        $link = JRoute::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid, $article->language));
+        if ($app->input->getInt('cart', 0) == 0 && $link != $cart_url) {
+            return;
+        }
+
+        if ($session->get('content_order'))
+        {
+            $template = $app->getTemplate();
+            $view = JControllerLegacy::getInstance('Content')->getView('article', JFactory::getDocument()->getType());
+
+            $basePath = JPATH_ROOT . '/plugins/content/contentcart/tmpl/';
+            if(is_file(JPATH_ROOT.'/templates/'.$template.'/html/plg_system_contentcart/cart.php')){
+                $basePath = JPATH_ROOT.'/templates/'.$template.'/html/plg_system_contentcart/';
+            }
+
+            $view->addTemplatePath($basePath);
+            $view->setLayout('cart');
+            if (!$this->params->get('mymenuitem')) {
+                $doc = JFactory::getDocument();
+                $doc->setTitle(JText::_('CONTENTCART_SHOPPING_CART'));
+            }
+        }
+        elseif ($link != $cart_url)
+        {
+            JFactory::getApplication()->redirect($link, 301);
+        }
+    }
 	
 }
