@@ -2,7 +2,7 @@
 <extension type="package" version="3.8" method="upgrade">
     <name>contentcart</name>
     <author>Joomline</author>
-	<packagename>contentcart</packagename>
+	<packagename>pkg_contentcart</packagename>
     <creationDate>@date@</creationDate>
 	<copyright>(C) 2018 Joomline. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see	LICENSE.txt</license>
