@@ -75,8 +75,8 @@ class plgContentcontentcart extends JPlugin
             $view = JControllerLegacy::getInstance('Content')->getView('article', JFactory::getDocument()->getType());
 
             $basePath = JPATH_ROOT . '/plugins/content/contentcart/tmpl/';
-            if(is_file(JPATH_ROOT.'/templates/'.$template.'/html/plg_system_contentcart/cart.php')){
-                $basePath = JPATH_ROOT.'/templates/'.$template.'/html/plg_system_contentcart/';
+            if(is_file(JPATH_ROOT.'/templates/'.$template.'/html/plg_content_contentcart/cart.php')){
+                $basePath = JPATH_ROOT.'/templates/'.$template.'/html/plg_content_contentcartt/';
             }
 
             $view->addTemplatePath($basePath);
