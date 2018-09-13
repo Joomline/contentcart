@@ -89,13 +89,13 @@ $content_order = $session->get('content_order');
 
 			// Check to make sure our data is valid, raise notice if it's not.
 			if (!$article->check()) {
-				JError::raiseNotice(500, $article->getError());
+				JFactory::getApplication()->enqueueMessage();
 				return FALSE;
 			}
 
 			// Now store the article, raise notice if it doesn't get stored.
 			if (!$article->store(TRUE)) {
-				JError::raiseNotice(500, $article->getError());
+				JFactory::getApplication()->enqueueMessage();
 			return FALSE;
 			}
 		}
