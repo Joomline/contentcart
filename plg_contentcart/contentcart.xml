@@ -1,11 +1,11 @@
-<?xml version="1.0"?>
-<extension type="plugin" version="3.8" method="upgrade" group="content">
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.8.0" type="plugin" group="content" method="upgrade">
     <name>PLG_CONTENT_CONTENTCART</name>
     <author>Efanych</author>
     <authorEmail>efanych@gmail.com</authorEmail>
 	<creationDate>@date@</creationDate>
-    <authorUrl>https://joomlaforum.ru/index.php?action=profile;u=79782</authorUrl>
-    <copyright>(C) 2018 Joomline. All rights reserved.</copyright>
+    <authorUrl>https://joomline.ru/</authorUrl>
+    <copyright>(C) 2018-2020 Joomline. All rights reserved.</copyright>
     <license>GNU General Public License version 2 or later</license>
     <version>@version@</version>
     <description>PLG_CONTENTCART_DESC</description>
@@ -145,5 +145,5 @@
 				<field name="title_note" type="text" label="CONTENTCART_TITLE_NOTE" description="CONTENTCART_TITLE_NOTE_DESC" default="" />
 			</fieldset>
         </fields>
-    </config>
+    </config>	
 </extension>

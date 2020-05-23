@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension type="package" version="3.8" method="upgrade">
-    <name>contentcart</name>
+    <name>Content Cart</name>
     <author>Joomline</author>
-	<packagename>pkg_contentcart</packagename>
+	<packagename>contentcart</packagename>
     <creationDate>@date@</creationDate>
-	<copyright>(C) 2018 Joomline. All rights reserved.</copyright>
+	<copyright>(C) 2018-2020 Joomline. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see	LICENSE.txt</license>
 	<authorEmail>sales@joomline.ru</authorEmail>
 	<packager>JoomLine</packager>
 	<packagerurl>https://joomline.ru</packagerurl>
     <version>@version@</version>
-    <description><![CDATA[Сontent cart - это очень простая система для организации интернет-магазина на базе полей Joomla. After installation, activate the plugin plg_contentcart. Set up and publish the module. <iframe frameborder='0' allowtransparency='true' scrolling='no' src='https://joomline.ru/donateen.html' width='100%' height='700'>]]></description>
+	<description><![CDATA[Сontent cart - это очень простая система для организации интернет-магазина на базе полей Joomla. After installation, activate the plugin plg_contentcart. Set up and publish the module. <div><iframe frameborder='0' allowtransparency='true' scrolling='no' src='https://joomline.ru/donatenew.html?solution=ContentCart' width='100%' height='800'></iframe></div>]]></description>
     <files>
-            <folder type="module" id="mod_contentcart" method="upgrade" client="site">mod_contentcart</folder>
-            <folder type="plugin" id="contentcart" group="content" method="upgrade" client="site">plg_contentcart</folder>
+		<folder type="plugin" group="content" id="contentcart">plg_contentcart</folder>
+        <folder type="module" id="mod_contentcart" client="site">mod_contentcart</folder>      		
     </files>
-    <updateservers><server type="extension" priority="1" name="Joomline">https://joomline.net/index.php?option=com_ars&amp;view=update&amp;task=stream&amp;format=xml&amp;id=33&amp;dummy=extension.xml</server></updateservers>
+    <updateservers><server type="extension" priority="1" name="Content Cart">https://joomline.net/update.html?extension_id=6.xml</server></updateservers>
 </extension>
