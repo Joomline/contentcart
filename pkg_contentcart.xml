@@ -10,7 +10,7 @@
 	<packager>JoomLine</packager>
 	<packagerurl>https://joomline.ru</packagerurl>
     <version>@version@</version>
-	<description><![CDATA[Сontent cart - это очень простая система для организации интернет-магазина на базе полей Joomla. After installation, activate the plugin plg_contentcart. Set up and publish the module. <div><iframe frameborder='0' allowtransparency='true' scrolling='no' src='https://joomline.ru/donatenew.html?solution=ContentCart' width='100%' height='800'></iframe></div>]]></description>
+	<description><![CDATA[<p>Добавляет корзину материалам Joomla с возможностью отправки заказа на E-mail и сохранения заказа в виде материала в выбранной категории. Подробнее о настройке плагина вы можете прочитать на <a target="_blank" href="https://joomline.ru/rasshirenija/plugin/contentcart.html">официальной странице</a>.</p><p>Для корректной работы активируйте плагин 'Контент - Корзина'.</p><h3>Пожертвуй на развитие плагина Content Car</h3><p>Расширение развивается и существует исключительно на пожертвования пользователей.</p><div><iframe frameborder='0' allowtransparency='true' scrolling='no' src='https://joomline.ru/donatenew.html?solution=ContentCart' width='100%' height='800'></iframe></div>]]></description>
     <files>
 		<folder type="plugin" group="content" id="contentcart">plg_contentcart</folder>
         <folder type="module" id="mod_contentcart" client="site">mod_contentcart</folder>      		
