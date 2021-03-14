@@ -4,9 +4,9 @@
     <author>Joomline</author>
 	<packagename>contentcart</packagename>
     <creationDate>@date@</creationDate>
-	<copyright>(C) 2018-2020 Joomline. All rights reserved.</copyright>
+	<copyright>(C) 2018-2021 Joomline. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see	LICENSE.txt</license>
-	<authorEmail>sales@joomline.ru</authorEmail>
+	<authorEmail>sale@joomline.ru</authorEmail>
 	<packager>JoomLine</packager>
 	<packagerurl>https://joomline.ru</packagerurl>
     <version>@version@</version>

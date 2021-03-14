@@ -17,8 +17,6 @@ $content_order = $session->get('content_order');
 
 	$mailer = JFactory::getMailer();
 	$app = JFactory::getApplication();
-	$sender = array('no-reply@'.$_SERVER['HTTP_HOST'], $fromname = $app->get('fromname'));
-	$mailer->setSender($sender);
 
 	$recipient = array($app->get('mailfrom'));
 	$mailer->addRecipient($recipient);

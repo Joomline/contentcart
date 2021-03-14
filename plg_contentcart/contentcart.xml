@@ -2,10 +2,10 @@
 <extension version="3.8.0" type="plugin" group="content" method="upgrade">
     <name>PLG_CONTENT_CONTENTCART</name>
     <author>Efanych</author>
-    <authorEmail>efanych@gmail.com</authorEmail>
+    <authorEmail>sale@joomline.ru</authorEmail>
 	<creationDate>@date@</creationDate>
     <authorUrl>https://joomline.ru/</authorUrl>
-    <copyright>(C) 2018-2020 Joomline. All rights reserved.</copyright>
+    <copyright>(C) 2018-2021 Joomline. All rights reserved.</copyright>
     <license>GNU General Public License version 2 or later</license>
     <version>@version@</version>
     <description>PLG_CONTENTCART_DESC</description>

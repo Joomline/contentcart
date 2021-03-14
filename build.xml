@@ -1,6 +1,6 @@
 <project name="contentcart" default="dist" basedir=".">
 
-	<property name="VERSION" value="1.1.3"/>
+	<property name="VERSION" value="1.1.4"/>
 	
 	<tstamp>
         <format property="DATE" pattern="%d.%m.%Y" />
