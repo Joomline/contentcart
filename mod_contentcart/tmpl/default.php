@@ -21,7 +21,11 @@ if($pluginParams->get('mymenuitem')){
 	$cart_url = JRoute::_("index.php?Itemid=".$pluginParams->get('mymenuitem'));
 } else {
 	$order = $session->get('content_order');
-	$cart_url = $order[0]['link'].'?cart=1';
+
+	$uri = JUri::getInstance();
+	$uri->parse( $order[0]['link'].'?cart=1');
+	$uri->setVar('cart', '1');
+	$cart_url = $uri->toString();
 }
 if ($session->get('content_order')) {
 ?>

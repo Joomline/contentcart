@@ -25,7 +25,7 @@ $content_order = $session->get('content_order');
 	$body  = '<h2>'.JText::_('CONTENTCART_ORDER_INFO').'</h2>';
 	$body  .=  '<table style="width:100%;">';
 	if ($_REQUEST['client_name']) {
-	$body  .=  '<tr><td>'.JText::_('CONTENTCART_CLIENT_NAME').'</td><td>'.$_REQUEST['client_name'].'</td></tr>';
+		$body  .=  '<tr><td>'.JText::_('CONTENTCART_CLIENT_NAME').'</td><td>'.$_REQUEST['client_name'].'</td></tr>';
 	}
 	if ($_REQUEST['client_email']) {
 	$body  .=  '<tr><td>'.JText::_('CONTENTCART_CLIENT_EMAIL').'</td><td>'.$_REQUEST['client_email'].'</td></tr>';
@@ -66,10 +66,14 @@ $content_order = $session->get('content_order');
 	$mailer->isHTML(true);
 	$mailer->setBody($body);
 
-	$send =& $mailer->Send();
+	$send = $mailer->Send();
+
+$client   = ucfirst($app->getName());
+$controller = $app->bootComponent('com_content')
+	->getMVCFactory()->createController('Article', $client, [], $app, $app->input);
+
 	if ($send !== true) {
     	$msg = 'Почему-то не отправилось';
-		$controller = JControllerLegacy::getInstance('Content');
 		$controller->setRedirect($redirect_url,$msg,'message');
 		$controller->redirect();
 	} else {
@@ -100,7 +104,6 @@ $content_order = $session->get('content_order');
 		$redirect_url =  $_SERVER['REQUEST_URI'];
     	$msg = JText::_('CONTENTCART_ORDER_ACCEPTED');
 		$session->clear('content_order');
-		$controller = JControllerLegacy::getInstance('Content');
 		$controller->setRedirect($redirect_url,$msg,'message');
 		$controller->redirect();
 	}
