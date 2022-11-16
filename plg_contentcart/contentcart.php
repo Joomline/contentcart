@@ -1,16 +1,16 @@
 <?php
+
 // No direct access
-defined( '_JEXEC' ) or die;
+defined('_JEXEC') or die;
 
 /**
  * Content Cart
  *
- * @version 	@version@
- * @author		Joomline
- * @copyright	(C) 2018 Efanych (efanych@gmail.com), Joomline. All rights reserved.
- * @license 	GNU General Public License version 2 or later; see	LICENSE.txt
+ * @version          @version@
+ * @author           Joomline
+ * @copyright    (C) 2018 Efanych (efanych@gmail.com), Joomline. All rights reserved.
+ * @license          GNU General Public License version 2 or later; see    LICENSE.txt
  */
-
 class plgContentcontentcart extends JPlugin
 {
 	/**
