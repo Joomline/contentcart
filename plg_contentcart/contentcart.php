@@ -36,12 +36,11 @@ class plgContentcontentcart extends JPlugin
 			$session->set('content_order', $content_order);
 			JFactory::getApplication()->redirect($_SERVER['HTTP_REFERER'], 301);
 		}
-		if (!$row->text)
-		{
-			return;
-		}
-		if (($this->params->get('category_filtering_type') == '0' && in_array($row->catid, $this->params->get('catid'))) or ($this->params->get('category_filtering_type') == '1' && !in_array($row->catid, $this->params->get('catid'))))
-		{
+
+		if (
+			($this->params->get('category_filtering_type') == '0' && in_array($row->catid, $this->params->get('catid')))
+			or ($this->params->get('category_filtering_type') == '1' && !in_array($row->catid, $this->params->get('catid')))
+		) {
 			return;
 		}
 		if (!in_array($context, $this->params->get('application_area')))
