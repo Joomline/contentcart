@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="3.8" client="site" method="upgrade">
+<extension type="module" version="4.0.0" client="site" method="upgrade">
 	<name>MOD_CONTENTCART_NAME</name>
     <author>Efanych</author>
     <authorEmail>efanych@gmail.com</authorEmail>
