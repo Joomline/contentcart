@@ -8,6 +8,9 @@
  * @license          GNU General Public License version 2 or later; see    LICENSE.txt
  */
 
+use Joomla\Component\Content\Administrator\Model\ArticleModel;
+use Joomla\CMS\Workflow\Workflow;
+
 defined('_JEXEC') or die;
 header('Content-Type: text/html; charset=utf-8');
 $session       = JFactory::getSession();
@@ -88,22 +91,41 @@ if ($send !== true)
 }
 else
 {
-	if (!empty($pluginParams->get('cat_for_orders')))
+	$categoryId = $pluginParams->get('cat_for_orders');
+	if (!empty($categoryId))
 	{
-		$model = new \Joomla\Component\Content\Administrator\Model\ArticleModel();
-		$data = [
-			'title' => JText::_('CONTENTCART_ORDER') . ' ' . date('d-m-Y H:i:s'),
-			'introtext' => $body,
-			'catid' => $pluginParams->get('cat_for_orders'),
-			'created' => JFactory::getDate()->toSQL(),
-			'created_by' => $userid,
-			'state' => 0,
-			'access' => 1,
-			'metadata' => '{"page_title":"","author":"","robots":""}',
-			'language' => '*',
-		];
-		if (!$model->save($data)) {
+		$article = JTable::getInstance('content');
+		$article->title            = JText::_('CONTENTCART_ORDER').' '.date( 'd-m-Y H:i:s' );
+		$article->introtext        = $body;
+		$article->catid            = $categoryId;
+		$article->created          = JFactory::getDate()->toSQL();
+		$article->created_by	   = $userid;
+		$article->state            = 0;
+		$article->access           = 1;
+		$article->metadata         = '{"page_title":"","author":"","robots":""}';
+		$article->language         = '*';
+
+		// Check to make sure our data is valid, raise notice if it's not.
+		if (!$article->check()) {
+			Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('CONTENTCART_ORDER_CHECK_ERROR'));
 			return false;
+		}
+
+		// Now store the article, raise notice if it doesn't get stored.
+		if (!$article->store(true)) {
+			Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('CONTENTCART_ORDER_SAVE_ERROR'));
+			return false;
+		}
+		if ($article->id) {
+			$workflow = new Workflow('com_content.article');
+			try {
+				$stage_id = $workflow->getDefaultStageByCategory($categoryId);
+				if ($stage_id) {
+					$workflow->createAssociation($article->id, $stage_id);
+				}
+			} catch (\Exception $e) {
+				return false;
+			}
 		}
 	}
 	$redirect_url = $_SERVER['REQUEST_URI'];
