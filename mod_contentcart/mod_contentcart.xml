@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="4.0.0" client="site" method="upgrade">
 	<name>MOD_CONTENTCART_NAME</name>
-    <author>Efanych</author>
-    <authorEmail>efanych@gmail.com</authorEmail>
+    <author>Joomline</author>
+    <authorEmail>sale@joomline.ru</authorEmail>
 	<creationDate>@date@</creationDate>
-    <authorUrl>https://joomlaforum.ru/index.php?action=profile;u=79782</authorUrl>
-    <copyright>(C) 2018-2021 Joomline. All rights reserved.</copyright>
+    <authorUrl>https://joomline.ru/</authorUrl>
+    <copyright>(C) 2018-2022 Joomline. All rights reserved.</copyright>
     <license>GNU General Public License version 2 or later</license>
     <version>@version@</version>
 	<description>MOD_CONTENTCART_XML_DESCRIPTION</description>
